@@ -36,6 +36,10 @@
         <activity
             android:name=".DiseaseListActivity"
             android:label="@string/title_activity_disease_list"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".DisplayActivity"
+            android:label="@string/title_activity_display"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
     </application>
 
