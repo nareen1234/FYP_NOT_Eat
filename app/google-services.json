@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "978680971131",
+    "firebase_url": "https://fypnoteat.firebaseio.com",
+    "project_id": "fypnoteat",
+    "storage_bucket": "fypnoteat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:978680971131:android:fee5415942eeb2bf",
+        "android_client_info": {
+          "package_name": "com.brunel.fyp_not_eat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "978680971131-jk1lijnh5ktd76gvsifi500ggudkc05h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.brunel.fyp_not_eat",
+            "certificate_hash": "3ff28358f4ed8397ddef49795e64049e47af3db9"
+          }
+        },
+        {
+          "client_id": "978680971131-38f9l6r6mai1vj6e1ok5hehlrrffmrvv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBR3ekf0vQ-mjN1AvRXPq04wJHdDbH29Io"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "978680971131-38f9l6r6mai1vj6e1ok5hehlrrffmrvv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
