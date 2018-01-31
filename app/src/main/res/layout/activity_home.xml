@@ -19,12 +19,13 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:scaleType="fitXY"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:foreground="#2B2B2B"
+            android:scaleType="fitXY"
             app:srcCompat="@drawable/background" />
 
         <TextView
@@ -42,7 +43,7 @@
             android:layout_alignBottom="@+id/textView4"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView3"
+            android:scaleType="fitXY"
             app:srcCompat="@drawable/title" />
 
         <TextView
@@ -86,12 +87,12 @@
 
         <ImageButton
             android:id="@+id/imageButton2"
-            android:onClick="onClick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/textView2"
             android:layout_centerHorizontal="true"
             android:background="@android:color/transparent"
+            android:onClick="onClick"
             app:srcCompat="@drawable/optionn" />
 
         <ImageButton

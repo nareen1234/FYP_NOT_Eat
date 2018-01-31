@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -21,6 +23,7 @@ public class UserInputActivity extends AppCompatActivity {
     static  String item="";
     TextView t1;
     String A="";
+    int cc=1;
     ArrayList<String> arrayList;
     ArrayAdapter<String> adapter;
     String value;
@@ -29,10 +32,13 @@ public class UserInputActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_user_input);
         lv = (ListView) findViewById(R.id.listview);
+        lv.setSelector( R.drawable.selector);
         arrayList = new ArrayList<String>();
-
         adapter = new ArrayAdapter<String>(UserInputActivity.this, android.R.layout.simple_list_item_1, arrayList);
         lv.setAdapter(adapter);
         FirebaseDatabase database_b = FirebaseDatabase.getInstance();
@@ -40,11 +46,14 @@ public class UserInputActivity extends AppCompatActivity {
         myRefb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                if(cc==1){
+                    cc=2;
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 value = dataSnapshot.getValue().toString();
+                System.out.println(value);
                 btnclk(value);
-                lv.setAdapter(adapter);
+                    lv.setAdapter(adapter);
                 lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position,
@@ -55,7 +64,7 @@ public class UserInputActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
-            }
+            }}
             @Override
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
@@ -65,28 +74,32 @@ public class UserInputActivity extends AppCompatActivity {
     public void btnclk(String result) {
         if (c == 0) {
             c++;
-            int count = 0, num = 0;
-            System.out.println(result);
-            result = result.substring(1, result.length());
-            for (int i = 0; i < result.length(); i++) {
-                Scanner in = new Scanner(result).useDelimiter("\\§");
-                while (in.hasNext() == true) {
-                    String G = in.next();
-                    count++;
+            int lengthh=0;
+            for(int i=0;i<result.length();i++)
+            {
+                char c=result.charAt(i);
+                if(c=='§')
+                {
+                    lengthh++;
                 }
             }
-            System.out.println(count);
-            whatnottoeat = new String[count];
+            int num = 0;
+            result = result.substring(1, result.length());
+            whatnottoeat = new String[lengthh];
+            System.out.println(lengthh);
             for (int i = 0; i < result.length(); i++) {
-                System.out.println(result);
                 Scanner in = new Scanner(result).useDelimiter("\\§");
                 while (in.hasNext() == true) {
                     String G = in.next();
-                    System.out.println(G);
-                    if (G.equalsIgnoreCase(null) == false) {
+                    G=G.trim();
+                    if (G.length()!=0) {
+                        System.out.println(G);
                         String itemm = G.substring(0, G.indexOf("="));
-                        whatnottoeat[num++] = G.substring(G.indexOf("=") + 1, G.length());
-                        adapter.add(itemm + "");
+                        System.out.println(itemm);
+                        if(num<lengthh) {
+                            whatnottoeat[num++] = G.substring(G.indexOf("=") + 1, G.length()-1);
+                            adapter.add(itemm + "");
+                        }
                     }
                 }
             }
