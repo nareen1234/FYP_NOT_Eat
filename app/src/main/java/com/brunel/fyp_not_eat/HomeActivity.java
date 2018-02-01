@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import java.io.IOException;
+
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
@@ -24,12 +26,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_home);
+
     }
 
     @Override
     public void onClick(View v) {
-        UpdateDatabase U=new UpdateDatabase();
-        U.main(null);
         Intent intent = new Intent(this, UserInputActivity.class);
         startActivity(intent);
 
