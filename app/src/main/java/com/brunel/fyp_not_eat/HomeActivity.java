@@ -28,7 +28,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-
+        UpdateDatabase U=new UpdateDatabase();
+        U.main(null);
         Intent intent = new Intent(this, UserInputActivity.class);
         startActivity(intent);
 

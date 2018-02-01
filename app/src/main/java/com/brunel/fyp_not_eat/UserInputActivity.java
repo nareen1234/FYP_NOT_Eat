@@ -42,7 +42,7 @@ public class UserInputActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<String>(UserInputActivity.this, android.R.layout.simple_list_item_1, arrayList);
         lv.setAdapter(adapter);
         FirebaseDatabase database_b = FirebaseDatabase.getInstance();
-        final DatabaseReference myRefb = database_b.getReference();
+        final DatabaseReference myRefb = database_b.getReference("Condition");
         myRefb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
