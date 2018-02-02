@@ -45,7 +45,11 @@
             android:name=".DisplayActivity"
             android:label="@string/title_activity_display"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".DatabaseActivity"></activity>
+        <activity android:name=".DatabaseActivity" />
+        <activity
+            android:name=".DisplayHealthActivity"
+            android:label="@string/title_activity_display_health"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
     </application>
 
 </manifest>
