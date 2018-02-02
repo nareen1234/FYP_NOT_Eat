@@ -51,7 +51,7 @@ public class UserInputActivity extends AppCompatActivity {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 value = dataSnapshot.getValue().toString();
-                System.out.println(value);
+              //  System.out.println(value);
                 btnclk(value);
                     lv.setAdapter(adapter);
                 lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -86,16 +86,13 @@ public class UserInputActivity extends AppCompatActivity {
             int num = 0;
             result = result.substring(1, result.length());
             whatnottoeat = new String[lengthh];
-            System.out.println(lengthh);
             for (int i = 0; i < result.length(); i++) {
                 Scanner in = new Scanner(result).useDelimiter("\\§");
                 while (in.hasNext() == true) {
                     String G = in.next();
                     G=G.trim();
                     if (G.length()!=0) {
-                        System.out.println(G);
                         String itemm = G.substring(0, G.indexOf("="));
-                        System.out.println(itemm);
                         if(num<lengthh) {
                             whatnottoeat[num++] = G.substring(G.indexOf("=") + 1, G.length()-1);
                             adapter.add(itemm + "");

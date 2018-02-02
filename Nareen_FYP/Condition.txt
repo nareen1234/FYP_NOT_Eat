@@ -1,0 +1,5 @@
+Coca cola,Sugar Sweetened Beverages,Trans Fat,White Bread,Pasta,Rice,Fruit flavoured Yoghurt,Flavoured Coffee,Honey,Agave Nectar,Maple Syrup,Dried Fruit,Packaged Snack Food,Fruit Juice,French Fries,Biscuits,Sausage Gravy,Cookies,Chicken,Ham Burgers,Regular Soft Drinks,Cakes,Flavoured Water,Frozen Pizza
+Alcohol,Coffee,Soda,Artificial Sweetners,Sorbitol,Carbonated Drinks,Pork,Veal,Sardines,Raw vegetables,Rhubarb,Onions,Corn,Fruits,Cherries,Seeded Berries,Figs,Currants,Grapes,Milk and Dairy products,Fried Food,Fatty Food,Greasy Food,Spicy Food,Processed foods, especially those with additive foods
+Alcohol,Milk,French Fries,Burger,Fried or Fatty Food,Crunchy Snacks,Coffee,Orange Juice,Refined Sugar,Sweets,Chocolates,Cookies,Candies,Kids' Cereal,Dairy except Yoghurt,Refined Carbohydrates
+Alcoholic Beverages,Meats,Bacon,Turkey,Veal,Venison,Liver,Sweet Bread,Oily Fish,Jam,Fructose,Wholemeal Bread,Wholemeal Grains,Peas,Mushrooms,Soya Beans,Baked Beans,Kidney Beans
+Alcohol,Tea,Salt,Coffee,Raw Mango,Red Chilli,Spicy Food,Brinjal,Red Chilli,Garlic,Ginger,Chick Peas,Mixed Pulses(Dal),Soya Products,Red Meat,Bakery Items,French Fries,Pizza,Pickles,Soup
