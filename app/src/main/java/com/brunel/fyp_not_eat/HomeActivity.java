@@ -27,10 +27,11 @@ import java.util.Scanner;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
     static  String result="";
-    static int num=0,lengthh=0;
+    static int num,lengthh;
+    boolean pressed=false;
     static ArrayList<String> arrayList;
     static ArrayAdapter<String> adapter;
-    String value;
+    String value,value1;
     static String[] whatnottoeat;
     private ProgressDialog progress;
     @Override
@@ -40,8 +41,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_home);
-        arrayList = new ArrayList<String>();
-        adapter = new ArrayAdapter<String>(HomeActivity.this, android.R.layout.simple_list_item_1, arrayList);
+
         FirebaseDatabase database_b = FirebaseDatabase.getInstance();
         final DatabaseReference myRefb = database_b.getReference("Condition");
         myRefb.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -50,26 +50,28 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                     // This method is called once with the initial value and again
                     // whenever data at this location is updated.
                     value = dataSnapshot.getValue().toString();
-                    result=value;
-                    lengthh = 0;
-                    for (int i = 0; i < result.length(); i++) {
-                        char c = result.charAt(i);
-                        if (c == '§') {
-                            lengthh++;
-                        }
-                    }
-                    num = 0;
-                    result = result.substring(1, result.length());
-                    whatnottoeat = new String[lengthh];
                 }
             @Override
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
             }
         });
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = database.getReference("Factor");
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                value1 = dataSnapshot.getValue().toString();
+            }
+            @Override
+            public void onCancelled(DatabaseError error) {}
+        });
     }
     @Override
     public void onClick(View v) {
+        pressed=false;
         new HomeActivity.PostClass(this).execute();
     }
     public void onClick2(View v) {
@@ -81,8 +83,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
     public void onClick1(View v) {
-        Intent intent = new Intent(this, UserInputHealthActivity.class);
-        startActivity(intent);
+        pressed=true;
+        new HomeActivity.PostClass(this).execute();
     }
 
 
@@ -101,6 +103,25 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         protected Void doInBackground(String... params) {
+            whatnottoeat =null;
+            arrayList = new ArrayList<String>();
+            adapter = new ArrayAdapter<String>(HomeActivity.this, android.R.layout.simple_list_item_1, arrayList);
+            if(pressed==false){
+                result=value;
+            }
+            else{
+                result=value1;
+            }
+            lengthh = 0;
+            for (int i = 0; i < result.length(); i++) {
+                char c = result.charAt(i);
+                if (c == '§') {
+                    lengthh++;
+                }
+            }
+            num = 0;
+            result = result.substring(1, result.length());
+            whatnottoeat = new String[lengthh];
 
                 Scanner in = new Scanner(result).useDelimiter("\\§");
                 while (in.hasNext() == true) {
@@ -118,9 +139,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             HomeActivity.this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    Intent intent = new Intent(HomeActivity.this, UserInputActivity.class);
-                    startActivity(intent);
-
+                    if(pressed==false) {
+                        Intent intent = new Intent(HomeActivity.this, UserInputActivity.class);
+                        startActivity(intent);
+                    }
+                    else {
+                        Intent intent = new Intent(HomeActivity.this, UserInputHealthActivity.class);
+                        startActivity(intent);
+                    }
                     progress.dismiss();
 
                 }
@@ -131,4 +157,5 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             progress.dismiss();
         }
     }
-}
+
+    }

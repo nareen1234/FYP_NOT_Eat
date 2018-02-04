@@ -28,19 +28,15 @@ public class DisplayHealthActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_display_health);
         lv = (ListView) findViewById(R.id.listview);
-        lv.setSelector( R.drawable.selector);
         arrayList = new ArrayList<String>();
-        lv.setSelector( R.drawable.selector);
         adapter = new ArrayAdapter<String>(DisplayHealthActivity.this, android.R.layout.simple_list_item_1, arrayList);
-        lv.setSelector( R.drawable.selector);
-        lv.setAdapter(adapter);
         btnclk();
         lv.setAdapter(adapter);
     }
     public void btnclk() {
         if (c == 0) {
             c++;
-            Scanner in = new Scanner(UserInputHealthActivity.whatnottoeat[UserInputHealthActivity.indexx]).useDelimiter("\\,");
+            Scanner in = new Scanner(HomeActivity.whatnottoeat[UserInputHealthActivity.indexx]).useDelimiter("\\,");
             while (in.hasNext() == true) {
                 String G = in.next();
                 adapter.add(G+"");
