@@ -12,13 +12,25 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:scaleType="fitXY"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:contextClickable="true"
+            android:foreground="#2B2B2B"
+            android:scaleType="fitXY"
             app:srcCompat="@drawable/background" />
+
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/textView6"
+            android:textAlignment="center"
+            android:textColor="#000" />
 
         <TextView
             android:id="@+id/textView3"
@@ -30,12 +42,13 @@
 
         <ImageView
             android:id="@+id/imageView8"
+            android:scaleType="fitXY"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/textView4"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView3"
+            android:layout_alignParentTop="true"
             app:srcCompat="@drawable/title" />
 
         <TextView
@@ -47,6 +60,28 @@
             android:layout_below="@+id/textView3"
             android:layout_marginTop="30dp"
             android:text="                " />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView8"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:text="                           "
+            android:textColor="@android:color/background_dark"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/listview"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/imageView8"
+            app:srcCompat="@drawable/title2" />
+
 
     </RelativeLayout>
 

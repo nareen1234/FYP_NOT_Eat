@@ -2,10 +2,7 @@ package com.brunel.fyp_not_eat;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -13,13 +10,11 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -66,7 +61,7 @@ public class UserInputHealthActivity extends AppCompatActivity {
                                                 long id) {
                             item = ((TextView) view).getText().toString();
                             indexx=position;
-                            Intent intent = new Intent(UserInputHealthActivity.this, DisplayActivity.class);
+                            Intent intent = new Intent(UserInputHealthActivity.this, DisplayHealthActivity.class);
                             startActivity(intent);
                         }
                     });

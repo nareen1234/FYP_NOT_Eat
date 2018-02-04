@@ -26,7 +26,7 @@ public class DisplayHealthActivity extends AppCompatActivity {
         setContentView(R.layout.activity_display_health);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_display);
+        setContentView(R.layout.activity_display_health);
         lv = (ListView) findViewById(R.id.listview);
         lv.setSelector( R.drawable.selector);
         arrayList = new ArrayList<String>();
